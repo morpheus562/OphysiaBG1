@@ -15,5 +15,5 @@ From the writer of the Smoldering Mods Bar comes a an NPC mod introduing Ophysia
 ## Links
 
 - [The Smoldering Mods Bar](https://smolderingmodsbar.com/)
-- [Ophysia's official webpage] (https://smolderingmodsbar.com/ophysia/)
+- [Ophysia's official webpage](https://smolderingmodsbar.com/ophysia/)
 - [The Beamdog Forums discussion](https://forums.beamdog.com/discussion/89111/mod-ophysia-npc-v1-0)
