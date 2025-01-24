@@ -15,14 +15,3 @@
     <img src="https://github.com/user-attachments/assets/8495a68c-2f24-4c0c-937e-52379f7cceb9" alt="Ophysia portrait" style="width: 250px; border-radius: 10px;">
   </div>
 </div>
-
-## Features
-
-- Stuff
--  **romance path** for female protagonists
--  **banter** with other NPCs
-
-## Links
-
--sdfsdf 
-- sfdgsdf
