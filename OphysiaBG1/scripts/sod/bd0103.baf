@@ -1,0 +1,16 @@
+IF
+  OR(2)
+  InMyArea("WNOPHY")
+  InPartyAllowDead("WNOPHY")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+    ApplySpellRES("bdresurr","WNOPHY") //resurrection
+    SmallWait(1)
+    ActionOverride("PlayerChest00",TakeCreatureItems("WNOPHY",BACKPACK))
+    SmallWait(1)
+    ActionOverride("WNOPHY",LeaveParty())
+    SmallWait(1)
+    ActionOverride("WNOPHY",DestroySelf())
+    Continue()
+END

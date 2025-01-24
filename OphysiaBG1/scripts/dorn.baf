@@ -1,0 +1,22 @@
+// Dorn attacks Ophysia when the player tells him that she was spreading rumours about him
+
+ IF
+    Global("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)
+    See("WNOPHY")
+    HPGT("WNOPHY",0)
+THEN
+    RESPONSE #100
+        Attack("WNOPHY")
+END
+
+IF
+    Global("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)
+    OR(2)
+        Dead("WNOPHY")
+        HPLT("WNOPHY",1)
+THEN
+    RESPONSE #100
+        MakeUnselectable(0)
+        SetGlobal("DORN_ROMANCE_FIGHT","GLOBAL",99)
+        StartDialogueNoSet(Player1)
+END

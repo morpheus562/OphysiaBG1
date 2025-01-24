@@ -1,0 +1,21 @@
+IF
+  Global("WNOPHY_kicked_bd4700","global",1) //set in WNSOPHYP.dlg
+  !Dead("WNOPHY")
+  !InParty("WNOPHY")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("bd4300","WNOPHY",[1840.1260]) 
+    ActionOverride("WNOPHY",Face(N))
+END
+
+IF
+  Global("WNOPHY_kicked_bd4700","global",0)
+  !Dead("WNOPHY")
+  !InParty("WNOPHY")
+THEN
+  RESPONSE #100
+  CutSceneId(Player1)
+  MoveGlobal("bd4300","WNOPHY",[1840.1260])
+  ActionOverride("WNOPHY",Face(W))
+END

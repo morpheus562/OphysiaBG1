@@ -1,0 +1,87 @@
+// Spawn Madri
+
+IF
+Global("MadriSpawned","BD3000",0)
+THEN
+RESPONSE #100
+CreateCreature("WNMADRI",[1117.1073],SE)
+SetGlobal("MadriSpawned","BD3000",1)
+END
+
+// Madri leaves when the going gets tough
+
+IF
+  InMyArea("WNMADRI")
+  GlobalGT("BD_PLOT","GLOBAL",390)
+  Global("wn_madri_finalact","BD3000",0)
+THEN
+  RESPONSE #100
+    ActionOverride("WNMADRI",DestroySelf())
+	SetGlobal("wn_madri_finalact","BD3000",1)
+    Continue()
+END
+
+// Ophy leaves when the going gets tough (and she's not in the party)
+
+IF
+  InMyArea("WNOPHY")
+  !Dead("WNOPHY")
+  !InPartyAllowDead("WNOPHY")
+  !InParty("WNOPHY")
+  GlobalGT("BD_PLOT","GLOBAL",390)
+  Global("wn_ophysia_finalact","BD3000",0)
+THEN
+  RESPONSE #100
+	MoveGlobal("BD3000","WNOPHY",[561.285])
+	SetGlobal("wn_ophysia_finalact","BD3000",1)
+    ActionOverride("WNOPHY",EscapeArea())
+    Continue()
+END
+// Move Ophy to the Coalition Camp
+
+IF
+    InParty("WNOPHY")
+	Global("WNOPHYMoveCamp","BD3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WNOPHYMoveCamp","BD3000",1)
+END
+
+IF
+  Global("WNOPHYMoveCamp","BD3000",0)
+  !BeenInParty("WNOPHY")
+  !Dead("WNOPHY")
+  !InPartyAllowDead("WNOPHY")
+THEN
+  RESPONSE #100
+    SetGlobal("WNOPHYMoveCamp","BD3000",1)
+    CreateCreature("WNSOPHY",[1334.1196],SW)
+    ReallyForceSpellDeadRES("BDREJUVE","WNOPHY")
+    ChangeEnemyAlly("WNOPHY",NEUTRAL)
+    ChangeSpecifics("WNOPHY",ALLIES)
+    ActionOverride("WNOPHY",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("WNOPHY",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("WNOPHY",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("WNOPHY",ChangeAIScript("WNSOPHY",OVERRIDE))
+    Continue()
+END
+
+IF
+  Global("WNOPHYMoveCamp","BD3000",0)
+  BeenInParty("WNOPHY")
+  !Dead("WNOPHY")
+  !InPartyAllowDead("WNOPHY")
+THEN
+  RESPONSE #100
+    SetGlobal("WNOPHYMoveCamp","BD3000",1)
+    MoveGlobal("BD3000","WNOPHY",[1334.1196])
+    ActionOverride("WNOPHY",Face(SW))
+    ReallyForceSpellDeadRES("BDREJUVE","WNOPHY")
+    ChangeEnemyAlly("WNOPHY",NEUTRAL)
+    ChangeSpecifics("WNOPHY",ALLIES)
+    ActionOverride("WNOPHY",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("WNOPHY",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("WNOPHY",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("WNOPHY",ChangeAIScript("WNSOPHY",OVERRIDE))
+    Continue()
+END

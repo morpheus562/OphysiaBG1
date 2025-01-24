@@ -1,0 +1,42 @@
+IF
+  Global("WNSOphySpawns","BD0111",0)
+  BeenInParty("WNOPHY")
+THEN
+  RESPONSE #100
+    MoveGlobal("BD0111","WNOPHY",[1032.497])
+    ApplySpellRES("bdresurr","WNOPHY")
+    SmallWait(1)
+    ActionOverride("WNOPHY",Face(SW))
+	ApplySpellRES("bdrejuve","WNOPHY")
+    ChangeEnemyAlly("WNOPHY",NEUTRAL)
+    ChangeSpecifics("WNOPHY",ALLIES)
+    ActionOverride("WNOPHY",SetGlobal("WNOphyJoined","locals",0))
+    ActionOverride("WNOPHY",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("WNOPHY",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("WNOPHY",ChangeAIScript("WNSOPHY",OVERRIDE))
+    ActionOverride("WNOPHY",ChangeAIScript("DEFAULT",CLASS))
+    ActionOverride("WNOPHY",ChangeAIScript("",RACE))
+    ActionOverride("WNOPHY",ChangeAIScript("",GENERAL))
+    ActionOverride("WNOPHY",ChangeAIScript("",DEFAULT))
+    ActionOverride("WNOPHY",SetDialog("WNSOPHY"))
+	ActionOverride("WNOPHY",Polymorph(FIGHTER_FEMALE_ELF))
+    SetGlobal("WNSOphySpawns","BD0111",1)
+    Continue()
+END
+
+IF
+  Global("WNSOphySpawns","BD0111",0)
+  !BeenInParty("WNOPHY")
+THEN
+  RESPONSE #100
+    CreateCreature("WNSOPHY",[1032.497],SW)
+    ApplySpell("WNOPHY",0)
+    SetGlobal("WNSOphySpawns","BD0111",1)
+	ChangeSpecifics("WNOPHY",ALLIES)
+	ActionOverride("WNOPHY",ChangeAIScript("WNSOPHY",OVERRIDE))
+	ActionOverride("WNOPHY",ChangeAIScript("DEFAULT",CLASS))
+	ActionOverride("WNOPHY",ChangeAIScript("",RACE))
+	ActionOverride("WNOPHY",ChangeAIScript("",GENERAL))
+	ActionOverride("WNOPHY",ChangeAIScript("",DEFAULT))
+	Continue()
+END

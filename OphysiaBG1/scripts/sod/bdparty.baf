@@ -1,0 +1,37 @@
+// Return to camp
+
+IF
+  Global("bd_npc_camp","locals",1)
+  Name("WNOPHY",Myself)
+  Switch("bd_npc_camp_chapter","global")
+  OR(2)
+    !Range("ff_camp",999)
+    NextTriggerObject("ff_camp")
+  !IsOverMe("WNOPHY")
+THEN
+  RESPONSE #2
+	EscapeAreaMove("BD1000",1134,1196,SW) // Coast Way
+  RESPONSE #3
+	EscapeAreaMove("BD7100",770,3560,NW) // Troll Forest
+  RESPONSE #4
+	EscapeAreaMove("BD3000",1334,1196,SW) // Coalition Camp
+END
+
+IF
+  GlobalLT("bd_npc_camp","locals",2)
+  Global("bd_joined","locals",0)
+  Name("WNOPHY",Myself)
+  NextTriggerObject("ff_camp")
+  IsOverMe("WNOPHY")
+  Switch("bd_npc_camp_chapter","global")
+THEN
+  RESPONSE #2
+    SetGlobal("bd_npc_camp","locals",2)
+    SaveLocation("LOCALS","bd_default_loc",[1134.1196])
+  RESPONSE #3
+    SetGlobal("bd_npc_camp","locals",2)
+    SaveLocation("LOCALS","bd_default_loc",[770.3560])
+  RESPONSE #4
+    SetGlobal("bd_npc_camp","locals",2)
+    SaveLocation("LOCALS","bd_default_loc",[1334.1196])
+END

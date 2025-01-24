@@ -1,0 +1,10 @@
+// Ophy leaves the group after the murder accusations 
+
+IF
+	InParty("WNOPHY")  
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("WNOPHY",LeaveParty())
+		ActionOverride("WNOPHY",DestroyAllFragileEquipment(ADAMANTINE)) 
+END

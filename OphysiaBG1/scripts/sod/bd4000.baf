@@ -1,0 +1,13 @@
+// Madri is with Stonehand outside Dragonspear Castle
+
+IF
+	Global("MadriCastle","BD4000",0)
+	GlobalGT("BD_PLOT","GLOBAL",390)
+	GlobalLT("BD_PLOT","GLOBAL",450)
+THEN
+	RESPONSE #100
+		CreateCreature("WNMADRI",[4077.1172],SE)
+		SetGlobal("MadriCastle","BD4000",1)
+		SetGlobal("WNMadriPlot","Global",4)
+END
+

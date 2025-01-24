@@ -1,0 +1,15 @@
+IF
+  Global("chapter","global",13)
+  GlobalTimerExpired("bd_jail_visitors_timer","bd0104")
+  Global("bd_jail_visitors","bd0104",4)
+  Global("OphysiaFriendship","global",2)
+  Global("wn_ophy_epilogue","global",0)
+  !Dead("WNOPHY")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_jail_visitors","bd0104",5)
+	SetGlobal("wn_ophy_epilogue","Global",1)
+    SetGlobalTimer("bd_jail_visitors2_timer","bd0104",TEN_ROUNDS)
+    MoveGlobal("bd0104","WNOPHY",[720.620])
+    ActionOverride("WNOPHY",ChangeAIScript("bdvisit",OVERRIDE))
+END

@@ -1,0 +1,10 @@
+// Patched into Corwin.bcs, this allows Corwin to start conversations with Ophysia
+IF
+	Global("wnOphy_SoD_CorwinBanter","GLOBAL",5)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("WNOPHY")
+	See("WNOPHY") 
+THEN
+	RESPONSE #100
+		SetAreaScript("wnsoph02",GENERAL)
+END
