@@ -1027,3 +1027,42 @@ CHAIN WNOPHYJ OphyBhaal.16
 ~Fine. I was trying to be nice, but can I see that isn't good enough for you. I thought we were friends, <CHARNAME>.~
 DO ~SetGlobal("WNBhaalChat","GLOBAL",2) SetGlobal("WNOPHYFriendshipActive","GLOBAL",3)~ 
 EXIT
+
+// EE Interactions
+
+// Dorn's distrust
+
+I_C_T ~DORNJ~ 87 wn_ophysia_dorn_distrust
+== WNOPHYJ IF ~InParty("WNOPHY") InMyArea("WNOPHY") !StateCheck("WNOPHY",CD_STATE_NOTVALID)~ THEN ~Don't project your own trust issues onto me.~
+== DORNJ ~The bard can't help but let her fanatic ideals bleed through her tales of deceit and fabrication.~
+END
+
+I_C_T ~DORNJ~ 178 wn_ophysia_dorn_distrust_2
+== WNOPHYJ IF ~InParty("WNOPHY") InMyArea("WNOPHY") !StateCheck("WNOPHY",CD_STATE_NOTVALID)~ THEN ~Don't project your own trust issues onto me.~
+== DORNJ ~The bard can't help but let her fanatic ideals bleed through her tales of deceit and fabrication.~
+END
+
+// Telling Dorn that Ophysia has been spreading rumours about him
+
+EXTEND_BOTTOM DORNJ 138
++ ~InParty("WNOPHY")~ + ~It was Ophysia.~ EXTERN WNOPHYJ wn_ophysia_dorn_die
+END
+
+CHAIN
+IF~~THEN WNOPHYJ wn_ophysia_dorn_die
+~<CHARNAME>! What the hells is wrong with you?!~
+== DORNJ ~Die, wench!~ [WNDIEDO]
+DO ~SetGlobal("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)~ 
+EXIT 
+
+
+EXTEND_BOTTOM DORNJ 229
++ ~InParty("WNOPHY")~ + ~It was Ophysia.~ EXTERN WNOPHYJ wn_ophysia_dorn_die_2
+END
+
+CHAIN
+IF~~THEN WNOPHYJ wn_ophysia_dorn_die_2
+~<CHARNAME>! What the hells is wrong with you?!~
+== DORNJ ~Die, wench!~ [WNDIEDO]
+DO ~SetGlobal("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)~ 
+EXIT 

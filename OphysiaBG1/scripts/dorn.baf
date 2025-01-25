@@ -6,6 +6,7 @@
     HPGT("WNOPHY",0)
 THEN
     RESPONSE #100
+		MakeUnselectable(5000)
         Attack("WNOPHY")
 END
 

@@ -230,3 +230,35 @@ THEN
         MoveToObject(Player1)
 		StartDialogueNoSet(Player1)
 END
+
+// Dorn romance fight
+
+IF
+    Global("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)
+    UnselectableVariable(0)
+THEN
+    RESPONSE #100
+        MakeUnselectable(5000)
+		SetGlobal("WNOPHYFriendshipActive","GLOBAL",3)
+END
+
+IF
+    Global("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)
+    See("DORN")  // Dorn
+    !StateCheck(Myself,STATE_MIRRORIMAGE)
+    HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
+THEN
+    RESPONSE #100
+        Spell(Myself,WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
+END
+
+IF
+    Global("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)
+    See("DORN")  // Dorn
+	OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+	!HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+    RESPONSE #100
+        Attack("DORN")
+END

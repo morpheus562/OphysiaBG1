@@ -71,43 +71,6 @@ I_C_T2 ~IRON4~ 0 wn_ophysia_iron4
 == WNOPHYJ IF ~InParty("WNOPHY") InMyArea("WNOPHY") !StateCheck("WNOPHY",CD_STATE_NOTVALID)~ THEN ~What are YOU doing in OUR mine? See, it works both ways. No? Well, whatever.~
 END
 
-// Dorn's distrust
-
-I_C_T ~DORNJ~ 87 wn_ophysia_dorn_distrust
-== WNOPHYJ IF ~InParty("WNOPHY") InMyArea("WNOPHY") !StateCheck("WNOPHY",CD_STATE_NOTVALID)~ THEN ~Don't project your own trust issues onto me.~
-== DORNJ ~The bard can't help but let her fanatic ideals bleed through her tales of deceit and fabrication.~
-END
-
-I_C_T ~DORNJ~ 178 wn_ophysia_dorn_distrust_2
-== WNOPHYJ IF ~InParty("WNOPHY") InMyArea("WNOPHY") !StateCheck("WNOPHY",CD_STATE_NOTVALID)~ THEN ~Don't project your own trust issues onto me.~
-== DORNJ ~The bard can't help but let her fanatic ideals bleed through her tales of deceit and fabrication.~
-END
-
-// Telling Dorn that Ophysia has been spreading rumours about him
-
-EXTEND_BOTTOM DORNJ 138
-+ ~InParty("WNOPHY")~ + ~It was Ophysia.~ EXTERN WNOPHYJ wn_ophysia_dorn_die
-END
-
-CHAIN
-IF~~THEN WNOPHYJ wn_ophysia_dorn_die
-~<CHARNAME>! What the hells is wrong with you?!~
-== DORNJ ~Die, wench!~ [WNDIEDO]
-DO ~SetGlobal("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)~ 
-EXIT 
-
-
-EXTEND_BOTTOM DORNJ 229
-+ ~InParty("WNOPHY")~ + ~It was Ophysia.~ EXTERN WNOPHYJ wn_ophysia_dorn_die_2
-END
-
-CHAIN
-IF~~THEN WNOPHYJ wn_ophysia_dorn_die_2
-~<CHARNAME>! What the hells is wrong with you?!~
-== DORNJ ~Die, wench!~ [WNDIEDO]
-DO ~SetGlobal("wn_DORN_ROMANCE_FIGHT","GLOBAL",1)~ 
-EXIT 
-
 // Cow opera
 
 I_C_T ~NEGOBB01~ 1 wn_ophysia_goblin
