@@ -3,6 +3,7 @@
 
 COPY ~OphysiaBG1/portraits~ ~override~
 COPY ~OphysiaBG1/audio~ ~override~
+COPY ~OphysiaBG1/bams~ ~override~
 
 COMPILE ~OphysiaBG1/dialogue/wnophy.d~
 COMPILE ~OphysiaBG1/dialogue/wnophyp.d~
