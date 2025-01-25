@@ -117,9 +117,11 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("bd_add_new_bio","LOCALS",1)
-        SetPlayerSound(Myself,~When asked about her past, OPHYSIA winces and tells you that she grew up in the slums of Waterdeep before eventually winding up in Daggerford, which she has called her home in the years since. While she only spares a bitter word or two for the City of Splendors, the young bard seems to hum with energy when talking about Daggerford and the people she’s met there.
+        SetPlayerSound(Myself,~When asked about her past, OPHYSIA winces before glossing over that she grew up in the slums of Waterdeep before a desire for a new life—and consequences for actions taken in her old one—drove her onto the road, where she eventually found herself in Daggerford, which she has called her home in the years since.
 
-As she has been unable to return home due to the crusade, Ophysia has joined the Flaming Fist expedition—much to her own distaste—and seems motivated to put a stop to the Shining Lady’s crusade.~,EXISTANCE5)
+While she only spares a bitter word or two for the City of Splendors, the young bard seems to hum with energy when talking about Daggerford and the people she’s met there, though it is tinted with a degree of frustration, given that the Shining Crusade has prevented her return home.
+
+Much to her own distaste, Ophysia has joined the Flaming Fist expedition and seems motivated to put a stop to crusade by your side.~,EXISTANCE5)
 END
 
 // Ensure Ophysia is A-OK after Korlasz's dungeon
