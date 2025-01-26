@@ -159,7 +159,7 @@ IF
 	!See([ENEMY])
 	See(Player1)
 	Global("Chapter","GLOBAL",3)
-	AreaCheck("AR3300")
+	AreaCheck("BG3300")
 	Global("WNPaperTrail","GLOBAL",0)
 THEN
 	RESPONSE #100
@@ -184,15 +184,15 @@ IF
 	!See([ENEMY])
 	See(Player1)
 		OR(9) // Checking if the player is in any of the following areas
-		AreaCheck("AR0100")
-		AreaCheck("AR0200")
-		AreaCheck("AR0300")
-		AreaCheck("AR0600")
-		AreaCheck("AR0700")
-		AreaCheck("AR0800")
-		AreaCheck("AR1100")
-		AreaCheck("AR1200")
-		AreaCheck("AR1300")
+		AreaCheck("BG0100")
+		AreaCheck("BG0200")
+		AreaCheck("BG0300")
+		AreaCheck("BG0600")
+		AreaCheck("BG0700")
+		AreaCheck("BG0800")
+		AreaCheck("BG1100")
+		AreaCheck("BG1200")
+		AreaCheck("BG1300")
 	Global("WNCityTalk","GLOBAL",0)
 THEN
 	RESPONSE #100
