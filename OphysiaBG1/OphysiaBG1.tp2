@@ -8,6 +8,7 @@ LANGUAGE ~English~
          ~OphysiaBG1/translations/english/JournalEntries.tra~
 
 BEGIN ~Ophysia, a Skald companion for BG:EE and SoD~
+REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~Component requires BG: EE or EET~
 
 ADD_JOURNAL TITLE (@0) @1 USING ~OphysiaBG1/translations/english/JournalEntries.tra~
 ADD_JOURNAL TITLE (@09) @10 USING ~OphysiaBG1/translations/english/JournalEntries.tra~
